@@ -1,17 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ 
+    <BarraLateral/>
+  
+   
+  
+
+  
+  
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BarraLateral from './components/BarraLateral.vue';
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    BarraLateral
   }
 }
+
 </script>
 
 <style>
