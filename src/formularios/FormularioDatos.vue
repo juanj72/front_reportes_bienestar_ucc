@@ -1,4 +1,5 @@
 <template>
+    <img src="../assets/logo.png" alt="">
 <body>
 	<div class="form-container">
 		<h1>Formulario de Contacto</h1>
