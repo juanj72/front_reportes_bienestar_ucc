@@ -7,7 +7,8 @@
 		<ul>
 			<li><a href="#hello">Inicio</a></li>
 			<li><a href="#formulario">Formulario</a></li>
-			<li><a href="#">Contacto</a></li>
+			<li><a href="#eventos">Eventos</a></li>
+			<li><a href="">Consultar Eventos</a></li>
 		</ul>
 	</nav>
 	<main>

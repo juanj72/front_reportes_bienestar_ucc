@@ -3,6 +3,7 @@ import App from './App.vue'
 import { createRouter,createWebHashHistory } from 'vue-router'
 import HelloWorld from './components/HelloWorld'
 import FormularioDatos from './formularios/FormularioDatos'
+import TablaEventos from './components/TablaEventos'
 // createApp(App).mount('#app')
 
 
@@ -10,7 +11,8 @@ const routes=[
 
     {path:'/hello',component:
      HelloWorld},
-     {path:'/formulario',component:FormularioDatos}
+     {path:'/formulario',component: FormularioDatos},
+     {path:'/eventos',component: TablaEventos}
 
 ]
 
