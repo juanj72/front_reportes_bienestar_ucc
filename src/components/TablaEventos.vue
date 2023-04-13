@@ -43,7 +43,7 @@ export default{
     },
     mounted: function() {
     // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-    console.log(axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error)));
+    console.log(axios.get('http://127.0.0.1:8000/api/eventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
   }
 
 

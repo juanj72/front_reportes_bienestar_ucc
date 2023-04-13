@@ -2,15 +2,15 @@
 <body>
 	
 	<div class="sidebar">
-		<a href="#">Inicio</a>
-		<a href="#">Perfil</a>
-		<a href="#">Configuración</a>
-		<a href="#">Cerrar sesión</a>
+		<a href="#hello">Inicio</a>
+		<a href="#formulario">Consulta evento</a>
+		<a href="#eventos">Eventos</a>
+		<a href="#Estudiantes">Estudiantes</a>
+		<a href="#consulta_est">Consultar estudiantes</a>
 	</div>
 
 	<div class="main">
-		<h1>Bienvenido</h1>
-		<p>Esta es una dashboard sencilla</p>
+		<RouterView></RouterView>
 	</div>
 </body>
 

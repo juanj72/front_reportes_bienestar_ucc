@@ -60,7 +60,7 @@ export default {
 
     methods: {
         submitForm() {
-            axios.post('http://127.0.0.1:8000/unico/', {
+            axios.post('http://127.0.0.1:8000/api/consulta_evento/', {
                 id: this.idEvento.id,
 
             })
