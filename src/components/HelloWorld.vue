@@ -1,7 +1,7 @@
 <template >
 
-  <h1>prueba de enrutador</h1>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae molestias sed harum blanditiis eos placeat culpa deserunt esse ipsa? Nesciunt ipsa ex architecto nulla quam dignissimos temporibus reprehenderit provident vero.</p>
+  <h1>Modulo de reportes</h1>
+  <p>Aquí encontraras todo lo relacionado a los reportes de horas por Estudiante.</p>
 
 </template>
 

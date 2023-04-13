@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="download-button">Descargar</a>
+    <a href="http://127.0.0.1:8000/api/reporte_estudiantes_programa" class="download-button">Descargar</a>
     <h1>Cantidad estudiantes por programa</h1>
     
     <div>
