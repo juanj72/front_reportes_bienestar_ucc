@@ -1,19 +1,17 @@
 <template>
 <body>
-	<header>
-		<h1>Reportes bienestar UCC</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="#hello">Inicio</a></li>
-			<li><a href="#formulario">Consultar Evento</a></li>
-			<li><a href="#eventos">Eventos</a></li>
-			<li><a href="#administrativos">Administrativos</a></li>
-		</ul>
-	</nav>
-	<main>
-		<router-view></router-view>
-	</main>
+	
+	<div class="sidebar">
+		<a href="#">Inicio</a>
+		<a href="#">Perfil</a>
+		<a href="#">Configuración</a>
+		<a href="#">Cerrar sesión</a>
+	</div>
+
+	<div class="main">
+		<h1>Bienvenido</h1>
+		<p>Esta es una dashboard sencilla</p>
+	</div>
 </body>
 
 </template>
@@ -32,43 +30,69 @@ export default{
 </script>
 
 <style scoped>
-body {
-	margin: 0;
-	padding: 0;
+
+/* Estilos para dispositivos de pantalla grande */
+@media only screen and (min-width: 768px) {
+	.sidebar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 200px;
+		height: 100%;
+		background-color: #333;
+		padding-top: 20px;
+	}
+
+	.sidebar a {
+		display: block;
+		color: #fff;
+		padding: 16px;
+		text-decoration: none;
+	}
+
+	.sidebar a:hover {
+		background-color: #666;
+	}
+
+	.main {
+		margin-left: 200px;
+		padding: 0 20px;
+	}
 }
-header {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 10px;
+
+/* Estilos para dispositivos de pantalla pequeña */
+@media only screen and (max-width: 767px) {
+	.sidebar {
+		position: fixed;
+		top: 0;
+		left: -200px;
+		width: 200px;
+		height: 100%;
+		background-color: #333;
+		padding-top: 20px;
+		transition: all 0.3s;
+	}
+
+	.sidebar a {
+		display: block;
+		color: #fff;
+		padding: 16px;
+		text-decoration: none;
+	}
+
+	.sidebar a:hover {
+		background-color: #666;
+	}
+
+	.main {
+		padding: 0 20px;
+	}
+
+	.show-sidebar {
+		left: 0;
+	}
 }
-nav {
-	background-color: #ccc;
-	height: 100%;
-	position: fixed;
-	width: 200px;
-}
-nav ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-nav li {
-	border-bottom: 1px solid #888;
-}
-nav li a {
-	color: #333;
-	display: block;
-	padding: 10px;
-	text-decoration: none;
-}
-nav li a:hover {
-	background-color: #eee;
-}
-main {
-	margin-left: 200px;
-	padding: 10px;
-}
+
 
 
 </style>
