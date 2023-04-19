@@ -8,6 +8,7 @@
 		<a href="#Estudiantes">Estudiantes</a>
 		<a href="#consulta_est">Consultar estudiantes</a>
 		<a href="#estudiantes_programa">Estudiantes por programa</a>
+		<a href="#perfiles">Ver perfiles</a>
 	</div>
 
 	<div class="main">

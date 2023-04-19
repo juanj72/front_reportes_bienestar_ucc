@@ -9,6 +9,7 @@ import tablaAdministrativos from './components/tablaAdministrativos'
 // createApp(App).mount('#app')
 import TablaEstudiantes from './components/TablaEstudiantes'
 import EstudiantesPrograma from './components/EstudiantesPrograma'
+import PerfilesVista from './components/PerfilesVista'
 
 
 
@@ -21,8 +22,9 @@ const routes=[
      {path:'/administrativos',component:tablaAdministrativos},
      {path: '/Estudiantes',component: TablaEstudiantes},
      {path:'/consulta_est', component: ConsultaEstudiante},
-     {path:'/estudiantes_programa',component: EstudiantesPrograma}
-   
+     {path:'/estudiantes_programa',component: EstudiantesPrograma},
+     {path: '/perfiles',component: PerfilesVista}
+
 
 
 ]
