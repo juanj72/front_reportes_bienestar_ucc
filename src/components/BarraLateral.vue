@@ -41,7 +41,7 @@ export default{
 		left: 0;
 		width: 200px;
 		height: 100%;
-		background-color: #333;
+		background-color: #00ACC9;
 		padding-top: 20px;
 	}
 
@@ -53,7 +53,7 @@ export default{
 	}
 
 	.sidebar a:hover {
-		background-color: #666;
+		background-color: #80BA27;
 	}
 
 	.main {
