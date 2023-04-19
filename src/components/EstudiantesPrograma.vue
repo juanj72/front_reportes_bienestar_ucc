@@ -1,6 +1,7 @@
 <template>
-    <a href="http://127.0.0.1:8000/api/reporte_estudiantes_programa" class="download-button">Descargar</a>
+    <a href="http://127.0.0.1:8000/reporte_excel/" class="download-button">Descargar</a>
     <h1>Cantidad estudiantes por programa</h1>
+    
     
     <div>
     
@@ -15,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="usuario in datos" :key="usuario.idEvento">
+          <tr v-for="usuario in datos" :key="usuario.idPrograma">
             <td>{{ usuario.idPrograma }}</td>
             <td>{{ usuario.nombre_programa }}</td>
             <td>{{ usuario.codigo_programa }}</td>

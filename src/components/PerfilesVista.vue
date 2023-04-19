@@ -1,28 +1,20 @@
 <template>
-    <h1>Estudiantes</h1>
+    <h1>perfiles de estudiantes</h1>
     <div>
-  
+    
         <table class="table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Correo Electrónico</th>
-            <th>Fecha inicio</th>
-            <th>Estado</th>
-            <th>Telefono</th>
-            <th>Código</th>
+            <th>usuario</th>
+            <th>Correo</th>
+      
           </tr>
         </thead>
         <tbody>
           <tr v-for="usuario in datos" :key="usuario.idEvento">
-            <td>{{ usuario.idEstudiante }}</td>
-            <td>{{ usuario.Perfil_idPerfil }}</td>
-            <td>{{ usuario.Programa_idPrograma }}</td>
-            <td>{{ usuario.nombre }}</td>
-            <td>{{ usuario.apellido }}</td>
-            <td> {{ usuario.telefono }}</td>
-            <td>{{ usuario.codigo }}</td>
+            <td>{{ usuario.usuario }}</td>
+            <td>{{ usuario.correo }}</td>
+            
           </tr>
         </tbody>
       </table>
@@ -39,7 +31,7 @@
     import axios from 'axios'
     export default{
     
-        name: 'TablasEstudiantes',
+        name: 'PerfilesVista',
         data:function(){
             return {
                 datos:[]
@@ -47,7 +39,7 @@
         },
         mounted: function() {
         // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-        console.log(axios.get('http://127.0.0.1:8000/api/estudiantes/').then(response => this.datos = response.data).catch(error => console.log(error)));
+        console.log(axios.get('http://127.0.0.1:8000/api/perfiles/').then(response => this.datos = response.data).catch(error => console.log(error)));
       }
     
     
