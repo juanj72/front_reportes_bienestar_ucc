@@ -7,7 +7,7 @@
         <h5>Cargo: {{ id.cargo }} </h5>
         <h5> <b>Lugar: </b> {{ id.lugar }}</h5>
         <h5> <b>Dia:</b> {{ id.dia }}</h5>
-        <h5> <b>horario:</b> {{ id.hora_inicio }} -- {{ id.hora_fin }}</h5>
+        <h5> <b>horario:</b> {{ id.horario }}</h5>
         <h4>Descripcion: {{ id.descripcion }}</h4>
       
       
