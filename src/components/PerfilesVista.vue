@@ -1,25 +1,32 @@
 <template>
-    <h1>perfiles de estudiantes</h1>
+    <h1>Lista de actividades</h1>
     <div>
     
         <table class="table">
         <thead>
           <tr>
-            <th>usuario</th>
-            <th>Correo</th>
+            <th>Actividad</th>
+            <th>Lugar</th>
+            <th>Detalle</th>
       
           </tr>
         </thead>
         <tbody>
-          <tr v-for="usuario in datos" :key="usuario.idEvento">
-            <td>{{ usuario.usuario }}</td>
-            <td>{{ usuario.correo }}</td>
+          <tr v-for="usuario in datos" :key="usuario.actividad_nombre">
+            <td>{{ usuario.actividad_nombre }}</td>
+            <td>{{ usuario.lugar }}</td>
+            <td>  <button  @click="toggleModal(usuario)" class="ver-est">Ver actividad</button></td>
             
           </tr>
         </tbody>
       </table>
     
     </div>
+
+
+    <ModalActividad :is-open="showModal"  @close="toggleModal" :id="dato" >
+
+    </ModalActividad>
     
     
     
@@ -29,18 +36,33 @@
     
     <script>
     import axios from 'axios'
+    import ModalActividad from '../modal/ModalActividad';
     export default{
     
         name: 'PerfilesVista',
         data:function(){
             return {
-                datos:[]
+                datos:[],
+                showModal:false,
+                dato:[]
             }
         },
         mounted: function() {
         // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-        console.log(axios.get('http://127.0.0.1:8000/api/perfiles/').then(response => this.datos = response.data).catch(error => console.log(error)));
-      }
+        console.log(axios.get('http://127.0.0.1:8000/api/actividades/').then(response => this.datos = response.data).catch(error => console.log(error)));
+      },
+      components:{
+        ModalActividad
+      },
+      methods:{
+        toggleModal(id) {
+      this.showModal = !this.showModal;
+      this.dato=id;
+      console.log(id)
+      
+
+    },
+      },
     
     
     }
@@ -62,6 +84,21 @@
       background-color: #f2f2f2;
       color: #333;
     }
+
+    .ver-est{
+  background-color: #00ACC9;
+  color: white;
+  border-radius: 6px;
+  position: relative;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-left: 25%;
+}
+.ver-est:hover{
+  background-color: #80BA27;
+  cursor: pointer;
+}
     
     
     </style>

@@ -4,12 +4,12 @@
 
 	<div class="sidebar">
 		<a href="#hello">Inicio</a>
-		<a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a>
+		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
 		<a href="#eventos">Eventos</a>
 		<a href="#Estudiantes">Estudiantes</a>
 		<a href="#consulta_est">Generar certificado horas</a>
 		<a href="#estudiantes_programa">Estudiantes por programa</a>
-		<a href="#perfiles">Ver perfiles</a>
+		<a href="#perfiles">Ver actividades</a>
 		<a href="#horas_bienestar">Horas de bienestar</a>
 	</div>
 
