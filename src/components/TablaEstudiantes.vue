@@ -5,20 +5,20 @@
         <table class="table">
         <thead>
           <tr>
-            <th>ID</th>
+         
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Telefono</th>
+          
             <th>Código</th>
             <th>Detalle</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="usuario in datos" :key="usuario.idEstudiante">
-            <td>{{ usuario.idEstudiante }}</td>
+            
             <td>{{ usuario.nombre }}</td>
             <td>{{ usuario.apellido }}</td>
-            <td> {{ usuario.telefono }}</td>
+    
             <td>{{ usuario.codigo }}</td>
             <td>  <button  @click="toggleModal(usuario)" class="ver-est">Ver Estudiante</button></td>
           </tr>

@@ -4,6 +4,10 @@
       <div class="modal-content" v-if="id" >
         <h2>Detalle</h2>
         <h5>Nombre: {{ id.nombre }}</h5>
+        <h5> <b>Apellido:</b>  {{ id.apellido }}</h5>
+        <h5> <b>Telefono:</b> {{ id.telefono }}</h5>
+        <h5> <b>Codigo:</b> {{ id.codigo }}</h5>
+        <h5>Identificador: {{ id.idEstudiante }}</h5>
       
         <slot></slot>
       </div>
