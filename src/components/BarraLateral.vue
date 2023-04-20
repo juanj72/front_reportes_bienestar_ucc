@@ -7,7 +7,7 @@
 		<a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a>
 		<a href="#eventos">Eventos</a>
 		<a href="#Estudiantes">Estudiantes</a>
-		<a href="#consulta_est">Consultar estudiantes</a>
+		<a href="#consulta_est">Generar certificado horas</a>
 		<a href="#estudiantes_programa">Estudiantes por programa</a>
 		<a href="#perfiles">Ver perfiles</a>
 		<a href="#horas_bienestar">Horas de bienestar</a>
