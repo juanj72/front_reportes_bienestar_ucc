@@ -51,10 +51,7 @@ export default{
 
     methods: {
         submitForm() {
-            axios.get('http://127.0.0.1:8000/api/estudiantes/'+this.idEstudiante.id, {
-                // id: this.idEstudiante.id,
-
-            })
+            axios.get('http://127.0.0.1:8000/api/estudiantes/'+this.idEstudiante.id, {})
                 .then(response => {
                     this.datos = response.data;
                     console.log(this.idEvento)

@@ -1,8 +1,10 @@
 <template>
     <div class="modal" v-show="isOpen">
       <div class="modal-overlay" @click="close"></div>
-      <div class="modal-content">
-        
+      <div class="modal-content" v-if="id" >
+        <h2>Detalle</h2>
+        <h5>Nombre: {{ id.nombre }}</h5>
+      
         <slot></slot>
       </div>
     </div>
@@ -12,19 +14,22 @@
 
   export default {
     name:'ModalEstudiante',
-
     props: {
       isOpen: {
         type: Boolean,
         required: true,
-       
+      
       },
+      id:[]
     },
     methods: {
       close() {
         this.$emit('close');
+        console.log(this.id)
       },
+
     },
+
   };
   </script>
   
