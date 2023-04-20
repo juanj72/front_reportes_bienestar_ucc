@@ -10,6 +10,7 @@ import tablaAdministrativos from './components/tablaAdministrativos'
 import TablaEstudiantes from './components/TablaEstudiantes'
 import EstudiantesPrograma from './components/EstudiantesPrograma'
 import PerfilesVista from './components/PerfilesVista'
+import TablaHoras from './components/TablaHoras'
 
 
 
@@ -27,7 +28,8 @@ const routes=[
      {path: '/Estudiantes',component: TablaEstudiantes},
      {path:'/consulta_est', component: ConsultaEstudiante},
      {path:'/estudiantes_programa',component: EstudiantesPrograma},
-     {path: '/perfiles',component: PerfilesVista}
+     {path: '/perfiles',component: PerfilesVista},
+     {path:'/horas_bienestar',component:TablaHoras}
 
 
 

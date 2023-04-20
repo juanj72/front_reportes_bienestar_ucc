@@ -10,6 +10,7 @@
 		<a href="#consulta_est">Consultar estudiantes</a>
 		<a href="#estudiantes_programa">Estudiantes por programa</a>
 		<a href="#perfiles">Ver perfiles</a>
+		<a href="#horas_bienestar">Horas de bienestar</a>
 	</div>
 
 	<div class="main">

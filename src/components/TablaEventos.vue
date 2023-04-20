@@ -28,24 +28,21 @@
 </div>
 
 
-<ModalEstudiante :is-open="showModal" @close="toggleModal" >
-      <h2>Título del modal</h2>
-      <p>Contenido del modal</p>
-    </ModalEstudiante>
+
 
 
 </template>
 
 <script>
 import axios from 'axios'
-import ModalEstudiante from '../modal/ModalEstudiante'
+
 export default{
 
     name: 'TablasEventos',
     data:function(){
         return {
             datos:[],
-            showModal:false,
+       
         }
     },
     mounted: function() {
@@ -53,7 +50,7 @@ export default{
     console.log(axios.get('http://127.0.0.1:8000/api/eventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
   },
   components:{
-    ModalEstudiante,
+
   },
   methods: {
     toggleModal() {
