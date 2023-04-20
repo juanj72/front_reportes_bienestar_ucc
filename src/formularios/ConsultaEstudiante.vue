@@ -21,7 +21,7 @@
         <img src="../assets/logotipo.svg" alt="">
         <hr>
         <hr>
-        <h2 style="text-align:center;">informacion del estudiante</h2>
+        <h2 style="text-align:center;">información del estudiante</h2>
         <h3>ID: {{ dato.idEstudiante }}</h3>
         <h3>Nombre: {{ dato.nombre }}</h3>
         <h3>Apellido: {{ dato.apellido }}</h3>
@@ -32,6 +32,8 @@
         <h3>Total horas por actividades: {{ dato.horas_actividad }}</h3>
         <h3>Total de horas bienestar: {{ dato.total_horas }}</h3>
         <hr>
+        <p>Este documento certifica las horas obtenidas por la asistencia a los diferentes espacios organizados por Bienestar Universitario. Por lo tanto, se solicita que se proceda a su debida constitución y publicación.</p>
+        <span>©</span> universidad cooperativa de colombia - 2023
        </div>
         
 
@@ -93,7 +95,7 @@ export default {
         html2canvas(div).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'PNG', 0, 0, 210, 297); // Ajusta los valores de ancho y alto según el tamaño de la página
+        pdf.addImage(imgData, 'PNG', 0, 0, 208, 270); // Ajusta los valores de ancho y alto según el tamaño de la página
         pdf.save('archivo.pdf');
 });
       }
