@@ -3,6 +3,8 @@
   <h1>Modulo de reportes</h1>
   <p>Aquí encontraras todo lo relacionado a los reportes de horas por Estudiante.</p>
 
+  
+
 </template>
 
 <script>

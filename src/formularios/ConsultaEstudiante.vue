@@ -94,13 +94,16 @@ input[type="text"] {
 }
 
 button[type="submit"] {
-  background-color: #003366;
+  background-color: #00ACC9;
   color: #fff;
   font-size: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+button[type="submit"]:hover{
+  background-color: #80BA27;
 }
 
 </style>

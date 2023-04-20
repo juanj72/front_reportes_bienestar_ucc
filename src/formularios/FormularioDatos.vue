@@ -1,23 +1,23 @@
 <template>
-    <img src="../assets/logo.png" alt="">
+   
 
     <body>
         <div class="form-container">
             <h1>Consultar evento</h1>
             <form @submit.prevent="submitForm">
                 <label for="nombre">id del evento:</label>
-                <input type="number" v-model="idEvento.id" required>
+                <input type="text" v-model="idEvento.id" required>
 
 
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Consultar">
             </form>
         </div>
 
-        <div class="card">
+        <div class="card" v-if="datos">
 
            
 
-           <div v-if="datos">
+           <div >
                 <div class="card-info" >
                     <h2>Título de la tarjeta</h2>
                     <h4>id</h4>
@@ -126,7 +126,7 @@ form textarea {
 
 form input[type="submit"] {
     display: block;
-    background-color: #333;
+    background-color: #00ACC9;
     color: #fff;
     padding: 10px 20px;
     border: none;

@@ -10,6 +10,9 @@ import tablaAdministrativos from './components/tablaAdministrativos'
 import TablaEstudiantes from './components/TablaEstudiantes'
 import EstudiantesPrograma from './components/EstudiantesPrograma'
 import PerfilesVista from './components/PerfilesVista'
+/* Set up using Vue 2 */
+
+
 
 
 
@@ -28,6 +31,10 @@ const routes=[
 
 
 ]
+
+
+
+
 
 const router =createRouter({
     history: createWebHashHistory(),
