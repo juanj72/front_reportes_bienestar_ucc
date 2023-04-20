@@ -4,7 +4,7 @@
 
 	<div class="sidebar">
 		<a href="#hello">Inicio</a>
-		<a href="#formulario">    <font-awesome-icon icon="fa-solid fa-user-secret" />Consulta evento</a>
+		<a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a>
 		<a href="#eventos">Eventos</a>
 		<a href="#Estudiantes">Estudiantes</a>
 		<a href="#consulta_est">Consultar estudiantes</a>

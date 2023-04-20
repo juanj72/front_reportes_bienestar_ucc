@@ -10,7 +10,10 @@ import tablaAdministrativos from './components/tablaAdministrativos'
 import TablaEstudiantes from './components/TablaEstudiantes'
 import EstudiantesPrograma from './components/EstudiantesPrograma'
 import PerfilesVista from './components/PerfilesVista'
-/* Set up using Vue 2 */
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUser, faCog } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -42,6 +45,10 @@ const router =createRouter({
 
 })
 
+
+library.add(faUser, faCog)
+
 const app =createApp(App)
 app.use(router)
 .mount('#app')
+.component('font-awesome-icon', FontAwesomeIcon)
