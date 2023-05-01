@@ -7,9 +7,9 @@
           <tr>
          
             <th>Nombre</th>
-            <th>Apellido</th>
+            <th>correo</th>
           
-            <th>Código</th>
+            
             <th>Detalle</th>
           </tr>
         </thead>
@@ -17,9 +17,9 @@
           <tr v-for="usuario in datos" :key="usuario.idEstudiante">
             
             <td>{{ usuario.nombre }}</td>
-            <td>{{ usuario.apellido }}</td>
+        
     
-            <td>{{ usuario.codigo }}</td>
+            <td>{{ usuario.correo }}</td>
             <td>  <button  @click="toggleModal(usuario)" class="ver-est">Ver Estudiante</button></td>
           </tr>
         </tbody>
