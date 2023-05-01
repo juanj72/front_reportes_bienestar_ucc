@@ -5,22 +5,21 @@
     <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Correo Electrónico</th>
-        <th>Fecha inicio</th>
-        <th>Estado</th>
-        <th>Acción</th>
+        <th>nombre</th>
+        <th>Descripcion</th>
+        <th>Lugar</th>
+        <th>Detalle</th>
+    
       </tr>
     </thead>
     <tbody>
       <tr v-for="usuario in datos" :key="usuario.idEvento">
-        <td>{{ usuario.idEvento }}</td>
-        <td>{{ usuario.nombre_evento }}</td>
+        <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.descripcion }}</td>
-        <td>{{ usuario.fecha_inicio }}</td>
-        <td>{{ usuario.estado }}</td>
-        <td>  <button  @click="toggleModal" class="ver-est">Ver evento</button></td>
+        <td>{{ usuario.lugar }}</td>
+        <td><button  @click="toggleModal(usuario)" class="ver-est">Ver evento</button></td>
+    
+        
       </tr>
     </tbody>
   </table>
@@ -47,7 +46,7 @@ export default{
     },
     mounted: function() {
     // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-    console.log(axios.get('http://127.0.0.1:8000/api/eventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
+    console.log(axios.get('http://127.0.0.1:8000/api/mostrarEventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
   },
   components:{
 
