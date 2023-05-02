@@ -2,37 +2,14 @@
     <a href="http://127.0.0.1:8000/reporte_excel/" class="download-button">Descargar</a>
     <h1>Cantidad estudiantes por programa</h1>
 
-    <div class="grafica" >
-      <GraficaEstudiantes></GraficaEstudiantes>
+    <div class="grafica" v-if="datos.length > 0">
+      <GraficaEstudiantes :datos_h="datos"></GraficaEstudiantes>
+
 
     </div>
     
     
-    <div>
     
-        <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Programa</th>
-            <th>Codigo programa</th>
-            <th>Cantidad estudiantes</th>
-            <th>ver</th>
-          
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="usuario in datos" :key="usuario.idPrograma">
-            <td>{{ usuario.idPrograma }}</td>
-            <td>{{ usuario.nombre_programa }}</td>
-            <td>{{ usuario.codigo_programa }}</td>
-            <td>{{ usuario.cantidad_estudiantes }}</td>
-            <td>  <button  @click="toggleModal" class="ver-est">Abrir modal</button></td>
-          </tr>
-        </tbody>
-      </table>
-    
-    </div>
     
     <div>
   
@@ -61,7 +38,7 @@
         },
         mounted: function() {
         // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-        console.log(axios.get('http://127.0.0.1:8000/api/estudiantes_programa/').then(response => this.datos = response.data).catch(error => console.log(error)));
+        console.log(axios.get('http://127.0.0.1:8000/api/EstudiantesPrograma/').then(response => this.datos = response.data).catch(error => console.log(error)));
       },
       components:{
         ModalEstudiante,
@@ -81,6 +58,8 @@
     .table {
       width: 100%;
       border-collapse: collapse;
+      margin-top: 5%;
+      margin-bottom: 5%;
     }
     
     .table th, .table td {
@@ -124,6 +103,14 @@
   background-color: #80BA27;
 }
 
-    
+    .grafica{
+      width: 100%;
+      text-align: center;
+      margin-top: 5%;
+      margin-bottom: 5%;
+
+    }
+
+
     
     </style>

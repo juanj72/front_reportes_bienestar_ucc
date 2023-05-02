@@ -2,17 +2,24 @@
 
   <h1>Modulo de reportes</h1>
   <p>Aquí encontraras todo lo relacionado a los reportes de horas por Estudiante.</p>
-
+  <CardPrueba dato_prueba="hola undo desde el componente pero card"></CardPrueba>
+  <CardPrueba dato_prueba="hola undo desde el componente pero 2"></CardPrueba>
   
 
 </template>
 
 <script>
+
+import CardPrueba from '../cards/CardPrueba'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  components:{
+    CardPrueba,
+   
+}
 }
 </script>
 
