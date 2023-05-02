@@ -22,14 +22,14 @@
         <hr>
         <hr>
         <h2 style="text-align:center;">información del estudiante</h2>
-        <h3>ID: {{ dato.idEstudiante }}</h3>
-        <h3>Nombre: {{ dato.nombre }}</h3>
-        <h3>Apellido: {{ dato.apellido }}</h3>
-        <h3>Usuario: {{ dato.usuario }}</h3>
-        <h3>Correo: {{ dato.correo }}</h3>
-        <h3>Programa: {{ dato.nombre_programa }}</h3>
-        <h3>Total de horas eventos: {{ dato.horas_evento }}</h3>
-        <h3>Total horas por actividades: {{ dato.horas_actividad }}</h3>
+        <h3>ID: {{ dato.id }}</h3>
+        <h3>Nombre: {{ dato.estudiante }}</h3>
+        <h3>Documento: {{ dato.documento }}</h3>
+        <h3>Correo: {{ dato.email }}</h3>
+        
+
+        <h3>Total de horas eventos: {{ dato.horas_eventos }}</h3>
+        <h3>Total horas por actividades: {{ dato.horas_actividades }}</h3>
         <h3>Total de horas bienestar: {{ dato.total_horas }}</h3>
         <hr>
         <p>Este documento certifica las horas obtenidas por la asistencia a los diferentes espacios organizados por Bienestar Universitario. Por lo tanto, se solicita que se proceda a su debida constitución y publicación.</p>
@@ -75,7 +75,7 @@ export default {
 
   methods: {
     submitForm() {
-     console.log( axios.get('http://127.0.0.1:8000/api/informacion_estudiante/' + this.idEstudiante.id, {})
+     console.log( axios.get('http://127.0.0.1:8000/api/consultaEstudiante/' + this.idEstudiante.id, {})
         .then(response => {
           this.datos = response.data;
           console.log(this.idEvento)
@@ -95,7 +95,7 @@ export default {
         html2canvas(div).then(canvas => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF();
-        pdf.addImage(imgData, 'PNG', 0, 0, 208, 270); // Ajusta los valores de ancho y alto según el tamaño de la página
+        pdf.addImage(imgData, 'PNG', 0, 0, 208, 200); // Ajusta los valores de ancho y alto según el tamaño de la página
         pdf.save('archivo.pdf');
 });
       }

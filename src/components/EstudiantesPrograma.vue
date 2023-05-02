@@ -1,6 +1,11 @@
 <template>
     <a href="http://127.0.0.1:8000/reporte_excel/" class="download-button">Descargar</a>
     <h1>Cantidad estudiantes por programa</h1>
+
+    <div class="grafica" >
+      <GraficaEstudiantes></GraficaEstudiantes>
+
+    </div>
     
     
     <div>
@@ -44,6 +49,7 @@
     <script>
     import axios from 'axios'
     import ModalEstudiante from '../modal/ModalEstudiante'
+    import GraficaEstudiantes from '../graficas/GraficaEstudiantes'
     export default{
     
         name: 'EstudiantesPrograma',
@@ -59,6 +65,7 @@
       },
       components:{
         ModalEstudiante,
+        GraficaEstudiantes,
       },
       methods: {
     toggleModal() {
