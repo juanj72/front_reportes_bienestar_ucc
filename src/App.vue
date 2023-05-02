@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,4 +31,5 @@ export default {
   color:#132740;
   /* margin-top: 60px; */
 }
+
 </style>
