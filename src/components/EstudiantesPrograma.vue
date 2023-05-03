@@ -55,23 +55,7 @@
     </script>
     
     <style scoped >
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 5%;
-      margin-bottom: 5%;
-    }
-    
-    .table th, .table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    
-    .table th {
-      background-color: #f2f2f2;
-      color: #333;
-    }
+
 
     .download-button {
   position: fixed;
@@ -104,8 +88,8 @@
 }
 
     .grafica{
-      width: 100%;
-      text-align: center;
+      align-items: center;
+      width: 80%;
       margin-top: 5%;
       margin-bottom: 5%;
 

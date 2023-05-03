@@ -12,6 +12,7 @@ import EstudiantesPrograma from './components/EstudiantesPrograma'
 import PerfilesVista from './components/PerfilesVista'
 import TablaHoras from './components/TablaHoras'
 import LoginAuth from './auth/LoginAuth'
+import TablaBonita from './datatables/TablaBonita'
 
 
 
@@ -31,7 +32,8 @@ const routes=[
      {path:'/estudiantes_programa',component: EstudiantesPrograma},
      {path: '/perfiles',component: PerfilesVista},
      {path:'/horas_bienestar',component:TablaHoras},
-     {path:'/login',component:LoginAuth}
+     {path:'/login',component:LoginAuth},
+     {path:'/tablabonita',component:TablaBonita}
 
 
 

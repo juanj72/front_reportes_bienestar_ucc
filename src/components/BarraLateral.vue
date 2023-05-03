@@ -11,6 +11,7 @@
 		<a href="#estudiantes_programa">Estudiantes por programa</a>
 		<a href="#perfiles">Ver actividades</a>
 		<a href="#horas_bienestar">Horas de bienestar</a>
+		<a href="#tablabonita">tabla bonita</a>
 	</div>
 
 	<div class="main">
