@@ -3,7 +3,7 @@
 <body>
 
 	<div class="sidebar">
-		<a href="#hello">Inicio</a>
+		<a href="#hello"> Inicio</a>
 		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
 		<a href="#eventos">Eventos</a>
 		<a href="#Estudiantes">Estudiantes</a>
@@ -16,6 +16,7 @@
 
 	<div class="main">
 		<img src="../assets/logotipo.svg" alt="">
+
 		<RouterView></RouterView>
 	</div>
 </body>
@@ -23,6 +24,7 @@
 </template>
 
 <script>
+
 
 export default{
     name:"BarraLateral",

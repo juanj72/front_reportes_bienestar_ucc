@@ -20,6 +20,7 @@ import TablaBonita from './datatables/TablaBonita'
 
 
 
+
 const routes=[
 
     {path:'/hello',component:
@@ -53,5 +54,6 @@ const router =createRouter({
 
 
 const app =createApp(App)
+
 app.use(router)
 .mount('#app')
