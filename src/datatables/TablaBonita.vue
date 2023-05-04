@@ -16,11 +16,11 @@
         <thead>
           <tr>
             <th> scope</th>
-            <th>nombre</th>
-            <th>correo</th>
-            <th>documento</th>
-            <th>telefono</th>
-            <th>programa</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Documento</th>
+            <th>Telefono</th>
+            <th>Programa</th>
           </tr>
         </thead>
       </DataTable>
