@@ -1,5 +1,6 @@
 <template>
-    <a href="http://127.0.0.1:8000/reporte_excel/" class="download-button"><font-awesome-icon :icon="['fas', 'download']" /> Descargar</a>
+    <!-- <a href="http://127.0.0.1:8000/reporte_excel/" class="download-button"><font-awesome-icon :icon="['fas', 'download']" /> Descargar</a> -->
+    <button class="download-button"   @click="exportToExcel"><font-awesome-icon :icon="['fas', 'download']" /> Descargar</button>
     <h1>Cantidad estudiantes por programa</h1>
 
     <div class="grafica" v-if="datos.length > 0">
@@ -27,6 +28,7 @@
     import axios from 'axios'
     import ModalEstudiante from '../modal/ModalEstudiante'
     import GraficaEstudiantes from '../graficas/GraficaEstudiantes'
+    import  * as XLSX from 'xlsx';
     export default{
     
         name: 'EstudiantesPrograma',
@@ -48,6 +50,32 @@
     toggleModal() {
       this.showModal = !this.showModal;
     },
+    exportToExcel() {
+      // Obtiene los datos que quieres exportar
+      const data = this.datos;
+
+      // Crea un libro de trabajo y agrega una hoja de cálculo
+      const workbook = XLSX.utils.book_new();
+      const sheet = XLSX.utils.json_to_sheet(data);
+
+      // Agrega la hoja de cálculo al libro de trabajo
+      XLSX.utils.book_append_sheet(workbook, sheet, 'Mi Hoja de Cálculo');
+
+      // Crea un objeto Blob para el archivo Excel
+      const blob = new Blob([XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
+
+      // Crea un objeto URL para descargar el archivo Excel
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'mi_archivo.xlsx');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+
   },
     
     
