@@ -2,7 +2,7 @@
   <h1><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</h1>
   <div class="export-buttons">
     <button class="btn btn-danger" @click="exportToPDF">
-      <font-awesome-icon :icon="['fas', 'file-pdf']" />  Exportar a PDF
+      <font-awesome-icon :icon="['fas', 'file-pdf']" /> Exportar a PDF
     </button>
     <button class="btn btn-primary" @click="exportToCsv">
       <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
@@ -11,65 +11,68 @@
       <font-awesome-icon :icon="['fas', 'file-excel']" /> Exportar a Excel
     </button>
   </div>
-    <div class="tabla">
-      <DataTable :data="myData"  :columns="filas" :options="{language:{search:'Buscar',next:'Siguiente',Previous:'anterior',},dom:'Bfrtip'}" class="display">
-        <thead>
-          <tr>
-            <th> scope</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Documento</th>
-            <th>Telefono</th>
-            <th>Programa</th>
-          </tr>
-        </thead>
-      </DataTable>
-    </div>
-  </template>
+  <div class="tabla">
+    <DataTable :data="myData" :columns="filas"
+      :options="{ language: { search: 'Buscar', next: 'Siguiente', Previous: 'anterior', }, dom: 'Bfrtip' }" class="display">
+      <thead>
+        <tr>
+          <th> scope</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Documento</th>
+          <th>Telefono</th>
+          <th>Programa</th>
+        </tr>
+      </thead>
+    </DataTable>
+  </div>
+</template>
   
-  <script>
-  import DataTable from 'datatables.net-vue3';
-  import DataTablesLib from 'datatables.net';
-  import Buttons from 'datatables.net-buttons';
-  import axios from 'axios';
-  import  * as XLSX from 'xlsx';
-  import Papa from 'papaparse';
+<script>
+import DataTable from 'datatables.net-vue3';
+import DataTablesLib from 'datatables.net';
+import Buttons from 'datatables.net-buttons';
+import axios from 'axios';
+import * as XLSX from 'xlsx';
+import Papa from 'papaparse';
 
-  
-  DataTable.use(DataTablesLib);
-  DataTable.use(Buttons);
-  
-  export default {
-    name:'TablaBonita',
-    components: {
-      DataTable,
-    },
-    data() {
-      return {
-        myData: [
-        ],
-        filas:[
-            {data:null,render:function(data,type,row,meta){
-                return `${meta.row}`
-            }},{data:'nombre'},{data:'correo'},{data:'documento'},{data:'telefono'},{data:'programa'}
-        ]
-       
-      };
+
+DataTable.use(DataTablesLib);
+DataTable.use(Buttons);
+
+export default {
+  name: 'TablaBonita',
+  components: {
+    DataTable,
+  },
+  data() {
+    return {
+      myData: [
+      ],
+      filas: [
+        {
+          data: null, render: function (data, type, row, meta) {
+            return `${meta.row}`
+          }
+        }, { data: 'nombre' }, { data: 'correo' }, { data: 'documento' }, { data: 'telefono' }, { data: 'programa' }
+      ]
+
+    };
+  },
+
+  mounted() {
+    this.getEstudiantes()
+  },
+  methods: {
+    getEstudiantes() {
+      axios.get('http://127.0.0.1:8000/api/estudiantes/').then(
+        response => (
+          this.myData = response.data
+        )
+      )
     },
 
-    mounted(){
-        this.getEstudiantes()
-    },
-    methods:{
-        getEstudiantes(){
-            axios.get('http://127.0.0.1:8000/api/estudiantes/').then(
-                response =>(
-                    this.myData=response.data
-                )
-            )
-        },
-
-        exportToCsv() {
+    exportToCsv() {
       const csv = Papa.unparse(this.myData);
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
@@ -82,7 +85,7 @@
       document.body.removeChild(link);
     },
 
-        exportToExcel() {
+    exportToExcel() {
       // Obtiene los datos que quieres exportar
       const data = this.myData;
 
@@ -107,11 +110,11 @@
       link.click();
       document.body.removeChild(link);
     },
-  
 
-    }
-  };
-  </script>
+
+  }
+};
+</script>
 
 <style scoped>
 .export-buttons {
@@ -119,11 +122,11 @@
   padding: 2%;
   align-items: center;
 }
-button{
+
+button {
   margin: 1%;
 }
-.tabla{
-  margin-bottom: 50px;
-}
 
-</style>
+.tabla {
+  margin-bottom: 50px;
+}</style>

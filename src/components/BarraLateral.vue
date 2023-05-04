@@ -12,7 +12,7 @@
 		<a href="#perfiles"><font-awesome-icon :icon="['fas', 'briefcase']" /> Actividades</a>
 		<a href="#horas_bienestar"><font-awesome-icon :icon="['fas', 'hourglass-half']" /> Horas</a>
 		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
-		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'clipboard-question']" /> Asistencia</a>
+		<a href="#Asistencia"><font-awesome-icon :icon="['fas', 'clipboard-question']" /> Asistencia</a>
 	</div>
 
 	<div class="main">

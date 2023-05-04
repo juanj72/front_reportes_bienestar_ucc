@@ -15,6 +15,7 @@ import PerfilesVista from './components/PerfilesVista'
 import TablaHoras from './components/TablaHoras'
 import LoginAuth from './auth/LoginAuth'
 import TablaBonita from './datatables/TablaBonita'
+import AsistenciaEst from './components/AsistenciaEst'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -45,7 +46,8 @@ const routes=[
      {path: '/perfiles',component: PerfilesVista},
      {path:'/horas_bienestar',component:TablaHoras},
      {path:'/login',component:LoginAuth},
-     {path:'/tablabonita',component:TablaBonita}
+     {path:'/tablabonita',component:TablaBonita},
+     {path:'/Asistencia',component:AsistenciaEst}
 
 
 
