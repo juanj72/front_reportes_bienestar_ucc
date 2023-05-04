@@ -1,105 +1,86 @@
 <template>
-    <a href="http://127.0.0.1:8000/api/horas_estudiante/generar_reporte" class="ver-est down">Descargar reporte</a>
-    <h1>Total horas de bienestar</h1>
-    <div>
-    
-        <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Carrera</th>
-            <th>Horas por evento</th>
-            <th>Horas por actividad</th>
-            <th>Total horas acumuladas</th>
-            <th>Detalle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="usuario in datos" :key="usuario.idEstudiante">
-            <td>{{ usuario.idEstudiante }}</td>
-            <td>{{ usuario.nombre }}</td>
-            <td>{{ usuario.apellido }}</td>
-            <td>{{ usuario.nombre_programa }}</td>
-            <td>{{ usuario.horas_evento }}</td>
-            <td>{{ usuario.horas_actividad }}</td>
-            <td>{{ usuario.total_horas }}</td>
-            <td>  <button  @click="toggleModal" class="ver-est">Ver evento</button></td>
-          </tr>
-        </tbody>
-      </table>
-    
-    </div>
-    
-    
-    
-    
-    
-    </template>
-    
-    <script>
-    import axios from 'axios'
-    
-    export default{
-    
-        name: 'TablaHoras',
-        data:function(){
-            return {
-                datos:[],
-           
-            }
-        },
-        mounted: function() {
-        // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-        console.log(axios.get('http://127.0.0.1:8000/api/horas_estudiante/').then(response => this.datos = response.data).catch(error => console.log(error)));
-      },
-      components:{
-    
-      },
-      methods: {
-        toggleModal() {
-          this.showModal = !this.showModal;
-        },
-      },
-    
-    
-    }
-    </script>
-    
-    <style scoped >
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .table th, .table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    
-    .table th {
-      background-color: #f2f2f2;
-      color: #333;
-    }
-    
-    .ver-est{
-      background-color: #00ACC9;
-      color: white;
-      border-radius: 6px;
-      position: relative;
-      font-size: 1em;
-      text-decoration: none;
-      padding: 5px 10px;
-      margin-left: 25%;
-    }
-    .ver-est:hover{
-      background-color: #80BA27;
-      cursor: pointer;
-    }
-    .down{
-        right: 0;
-    }
-    
-    </style>
+<h1>Horas de bienestar</h1>
+
+<div class="export-buttons">
+    <button class="btn btn-danger" @click="exportToPDF">
+      <i class="fas fa-file-pdf"></i> Exportar a PDF
+    </button>
+    <button class="btn btn-primary" @click="exportToCSV">
+      <i class="fas fa-file-csv"></i> Exportar a CSV
+    </button>
+    <button class="btn btn-success" @click="exportToExcel">
+      <i class="fas fa-file-excel"></i> Exportar a Excel
+    </button>
+  </div>
+
+  <div>
+    <DataTable :data="myData"  :columns="filas" :options="{language:{search:'Buscar',next:'Siguiente',Previous:'anterior',},dom:'Bfrtip'}" class="display">
+      <thead>
+        <tr>
+          <th> scope</th>
+          <th>Documento</th>
+          <th>Código</th>
+          <th>Estudiante</th>
+          <th>Correo</th>
+          <th>Horas por actividad</th>
+          <th>Horas por eventos</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+    </DataTable>
+  </div>
+</template>
+
+<script>
+import DataTable from 'datatables.net-vue3';
+import DataTablesLib from 'datatables.net';
+import Buttons from 'datatables.net-buttons';
+import axios from 'axios';
+
+DataTable.use(DataTablesLib);
+DataTable.use(Buttons);
+
+export default {
+  name:'PerfilesVista',
+  components: {
+    DataTable,
+  },
+  data() {
+    return {
+      myData: [
+      ],
+      filas:[
+          {data:null,render:function(data,type,row,meta){
+              return `${meta.row}`
+          }},{data:'documento'},{data:'id'},{data:'estudiante'},{data:'email'},{data:'horas_eventos'},{data:'horas_actividades'},{data:'total_horas'}
+      ]
+     
+    };
+  },
+
+  mounted(){
+      this.getEstudiantes()
+  },
+  methods:{
+      getEstudiantes(){
+          axios.get('http://127.0.0.1:8000/api/horasEstudiante/').then(
+              response =>(
+                  this.myData=response.data
+              )
+          )
+      }
+  }
+};
+</script>
+
+<style scoped>
+.export-buttons {
+  display: flex;
+  padding: 2%;
+  align-items: center;
+}
+button{
+  margin: 1%;
+}
+
+</style>

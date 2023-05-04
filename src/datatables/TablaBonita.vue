@@ -1,5 +1,17 @@
 <template>
-    <div>
+  <h1>Estudiantes</h1>
+  <div class="export-buttons">
+    <button class="btn btn-danger" @click="exportToPDF">
+      <i class="fas fa-file-pdf"></i> Exportar a PDF
+    </button>
+    <button class="btn btn-primary" @click="exportToCSV">
+      <i class="fas fa-file-csv"></i> Exportar a CSV
+    </button>
+    <button class="btn btn-success" @click="exportToExcel">
+      <i class="fas fa-file-excel"></i> Exportar a Excel
+    </button>
+  </div>
+    <div class="tabla">
       <DataTable :data="myData"  :columns="filas" :options="{language:{search:'Buscar',next:'Siguiente',Previous:'anterior',},dom:'Bfrtip'}" class="display">
         <thead>
           <tr>
@@ -56,3 +68,18 @@
     }
   };
   </script>
+
+<style scoped>
+.export-buttons {
+  display: flex;
+  padding: 2%;
+  align-items: center;
+}
+button{
+  margin: 1%;
+}
+.tabla{
+  margin-bottom: 50px;
+}
+
+</style>

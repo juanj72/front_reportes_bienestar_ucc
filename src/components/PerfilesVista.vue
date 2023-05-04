@@ -1,104 +1,87 @@
 <template>
-    <h1>Lista de actividades</h1>
-    <div>
-    
-        <table class="table">
-        <thead>
-          <tr>
-            <th>Actividad</th>
-            <th>Lugar</th>
-            <th>Detalle</th>
+  <h2>Actividades</h2>
+
+  <div class="export-buttons">
+    <button class="btn btn-danger" @click="exportToPDF">
+      <i class="fas fa-file-pdf"></i> Exportar a PDF
+    </button>
+    <button class="btn btn-primary" @click="exportToCSV">
+      <i class="fas fa-file-csv"></i> Exportar a CSV
+    </button>
+    <button class="btn btn-success" @click="exportToExcel">
+      <i class="fas fa-file-excel"></i> Exportar a Excel
+    </button>
+  </div>
+
+
+  <div>
+    <DataTable :data="myData"  :columns="filas" :options="{language:{search:'Buscar',next:'Siguiente',Previous:'anterior',},dom:'Bfrtip'}" class="display">
+      <thead>
+        <tr>
+          <th> scope</th>
+          <th>Actividad</th>
+          <th>Lugar</th>
+          <th>Persona a cargo</th>
+          <th>Día</th>
+          <th>Hora de inicio</th>
+          <th>Hora de finalización</th>
+        </tr>
+      </thead>
+    </DataTable>
+  </div>
+</template>
+
+<script>
+import DataTable from 'datatables.net-vue3';
+import DataTablesLib from 'datatables.net';
+import Buttons from 'datatables.net-buttons';
+import axios from 'axios';
+
+DataTable.use(DataTablesLib);
+DataTable.use(Buttons);
+
+export default {
+  name:'PerfilesVista',
+  components: {
+    DataTable,
+  },
+  data() {
+    return {
+      myData: [
+      ],
+      filas:[
+          {data:null,render:function(data,type,row,meta){
+              return `${meta.row}`
+          }},{data:'actividad'},{data:'lugar'},{data:'administrador'},{data:'dia'},{data:'hora_inicio'},{data:'hora_fin'}
+      ]
+     
+    };
+  },
+
+  mounted(){
+      this.getEstudiantes()
+  },
+  methods:{
+      getEstudiantes(){
+          axios.get('http://127.0.0.1:8000/api/actividades/').then(
+              response =>(
+                  this.myData=response.data
+              )
+          )
+      },
       
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="usuario in datos" :key="usuario.actividad_nombre">
-            <td>{{ usuario.actividad_nombre }}</td>
-            <td>{{ usuario.lugar }}</td>
-            <td>  <button  @click="toggleModal(usuario)" class="ver-est">Ver actividad</button></td>
-            
-          </tr>
-        </tbody>
-      </table>
-    
-    </div>
+  }
+};
+</script>
 
-
-    <ModalActividad :is-open="showModal"  @close="toggleModal" :id="dato" >
-
-    </ModalActividad>
-    
-    
-    
-    
-    
-    </template>
-    
-    <script>
-    import axios from 'axios'
-    import ModalActividad from '../modal/ModalActividad';
-    export default{
-    
-        name: 'PerfilesVista',
-        data:function(){
-            return {
-                datos:[],
-                showModal:false,
-                dato:[]
-            }
-        },
-        mounted: function() {
-        // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
-        console.log(axios.get('http://127.0.0.1:8000/api/actividades/').then(response => this.datos = response.data).catch(error => console.log(error)));
-      },
-      components:{
-        ModalActividad
-      },
-      methods:{
-        toggleModal(id) {
-      this.showModal = !this.showModal;
-      this.dato=id;
-      console.log(id)
-      
-
-    },
-      },
-    
-    
-    }
-    </script>
-    
-    <style scoped >
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .table th, .table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-    
-    .table th {
-      background-color: #f2f2f2;
-      color: #333;
-    }
-
-    .ver-est{
-  background-color: #00ACC9;
-  color: white;
-  border-radius: 6px;
-  position: relative;
-  font-size: 1em;
-  text-decoration: none;
-  padding: 5px 10px;
-  margin-left: 25%;
+<style scoped>
+.export-buttons {
+  display: flex;
+  padding: 2%;
+  align-items: center;
 }
-.ver-est:hover{
-  background-color: #80BA27;
-  cursor: pointer;
+button{
+  margin: 1%;
 }
-    
-    
-    </style>
+
+</style>
