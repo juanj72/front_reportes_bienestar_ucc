@@ -3,13 +3,13 @@
 
 <div class="export-buttons">
     <button class="btn btn-danger" @click="exportToPDF">
-      <i class="fas fa-file-pdf"></i> Exportar a PDF
+      <font-awesome-icon :icon="['fas', 'file-pdf']" /> Exportar a PDF
     </button>
     <button class="btn btn-primary" @click="exportToCSV">
-      <i class="fas fa-file-csv"></i> Exportar a CSV
+      <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
     </button>
     <button class="btn btn-success" @click="exportToExcel">
-      <i class="fas fa-file-excel"></i> Exportar a Excel
+      <font-awesome-icon :icon="['fas', 'file-excel']" /> Exportar a Excel
     </button>
   </div>
 

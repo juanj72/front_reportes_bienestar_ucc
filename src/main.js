@@ -16,6 +16,15 @@ import TablaHoras from './components/TablaHoras'
 import LoginAuth from './auth/LoginAuth'
 import TablaBonita from './datatables/TablaBonita'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+import { faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+library.add(faDownload,faMagnifyingGlass,faHatWizard,faEye)
+library.add(faHouse)
+library.add(faCalendarCheck)
+library.add(faChartColumn,faChartArea,faFileExcel,faFileCsv,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf)
 
 
 
@@ -56,6 +65,6 @@ const router =createRouter({
 
 
 const app =createApp(App)
-
+app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
 .mount('#app')

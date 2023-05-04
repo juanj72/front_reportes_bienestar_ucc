@@ -17,7 +17,7 @@
         <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.descripcion }}</td>
         <td>{{ usuario.lugar }}</td>
-        <td><button  @click="toggleModal(usuario)" class="ver-est">Ver evento</button></td>
+        <td><button  @click="toggleModal(usuario)" class="ver-est"><font-awesome-icon :icon="['fas', 'eye']" /></button></td>
     
         
       </tr>

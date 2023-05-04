@@ -3,15 +3,15 @@
 <body>
 
 	<div class="sidebar">
-		<a href="#hello"> Inicio</a>
+		<a href="#hello"><font-awesome-icon :icon="['fas', 'house']" />  Inicio</a>
 		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
-		<a href="#eventos">Eventos</a>
+		<a href="#eventos"><font-awesome-icon :icon="['fas', 'calendar-check']" /> Eventos</a>
 		
-		<a href="#consulta_est">Generar certificado horas</a>
-		<a href="#estudiantes_programa">Estudiantes por programa</a>
-		<a href="#perfiles">Ver actividades</a>
-		<a href="#horas_bienestar">Horas de bienestar</a>
-		<a href="#tablabonita">Estudiantes</a>
+		<a href="#consulta_est"><font-awesome-icon :icon="['fas', 'file-export']" /> Certificado horas</a>
+		<a href="#estudiantes_programa"><font-awesome-icon :icon="['fas', 'chart-line']" /> Estudiantes por programa</a>
+		<a href="#perfiles"><font-awesome-icon :icon="['fas', 'briefcase']" /> Actividades</a>
+		<a href="#horas_bienestar"><font-awesome-icon :icon="['fas', 'hourglass-half']" /> Horas</a>
+		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
 	</div>
 
 	<div class="main">
@@ -52,6 +52,7 @@ export default{
 		height: 100%;
 		background-color: #00ACC9;
 		padding-top: 20px;
+		
 	}
 
 	.sidebar a {
@@ -63,6 +64,7 @@ export default{
 
 	.sidebar a:hover {
 		background-color: #80BA27;
+		color: #333;
 	}
 
 	.main {

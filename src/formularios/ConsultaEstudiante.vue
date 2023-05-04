@@ -3,7 +3,7 @@
   <form @submit.prevent="submitForm" ref="myDiv">
     <label for="campo">Id de estudiante:</label>
     <input type="text" id="campo" name="campo" v-model="idEstudiante.id" required>
-    <button type="submit">Consultar</button>
+    <button type="submit"><font-awesome-icon :icon="['fas', 'magnifying-glass']" /> Consultar</button>
   </form>
   <hr>
   <button class="douwnload-btn" @click="downloadPDF" v-if="datos" >descargar informacion</button>

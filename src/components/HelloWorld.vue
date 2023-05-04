@@ -1,10 +1,11 @@
 <template >
-<h3>Bienvenido al modulo de reportes</h3>
+<h3><font-awesome-icon :icon="['fas', 'chart-area']" /> Bienvenido al modulo de reportes</h3>
+
 
 
   <div class="card-container">
     <div class="card">
-      <div class="card-header">Asistencia por horas en actividades</div>
+      <div class="card-header"><font-awesome-icon :icon="['fas', 'chart-column']" /> Asistencia por horas en actividades</div>
       <div class="card-body" v-if="actividades.length > 0">
         <GraficasPanel :datos_h="actividades" ></GraficasPanel>
 
@@ -12,17 +13,13 @@
     </div>
 
     <div class="card">
-      <div class="card-header">Cantidad de estudiantes por evento</div>
+      <div class="card-header"><font-awesome-icon :icon="['fas', 'chart-column']" /> Cantidad de estudiantes por evento</div>
       <div class="card-body" v-if="eventos.length > 0">
         <GraficasPanel :datos_h="eventos" ></GraficasPanel>
 
       </div> 
     </div>
 
-    <div class="card">
-      <div class="card-header">Card 3</div>
-      <div class="card-body">This is the content of card 3.</div> 
-    </div>
   </div>
 
 
@@ -86,6 +83,7 @@ mounted:function(){
 
 .card-body {
   padding: 10px;
+  margin-bottom: 5%;
 }
 
 </style>
