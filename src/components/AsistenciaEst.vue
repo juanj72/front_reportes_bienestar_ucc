@@ -15,7 +15,7 @@
                     <button class="btn btn-primary" @click="exportToCsv">
                         <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
                     </button>
-                    <button class="btn btn-success" @click="exportToExcel">
+                    <button class="btn btn-success" @click="exportToExcel(actividades)">
                         <font-awesome-icon :icon="['fas', 'file-excel']" /> Exportar a Excel
                     </button>
                 </div>
@@ -52,7 +52,7 @@
                     <button class="btn btn-primary" @click="exportToCsv">
                         <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
                     </button>
-                    <button class="btn btn-success" @click="exportToExcel">
+                    <button class="btn btn-success" @click="exportToExcel(eventos)">
                         <font-awesome-icon :icon="['fas', 'file-excel']" /> Exportar a Excel
                     </button>
                 </div>
@@ -87,6 +87,7 @@ import axios from 'axios';
 import DataTable from 'datatables.net-vue3';
 import DataTablesLib from 'datatables.net';
 import Buttons from 'datatables.net-buttons';
+import  * as XLSX from 'xlsx';
 
 DataTable.use(DataTablesLib);
 DataTable.use(Buttons);
@@ -145,7 +146,32 @@ export default {
                     this.eventos = response.data
                 )
             )
-        }
+        },
+        exportToExcel(datos) {
+      // Obtiene los datos que quieres exportar
+      const data = datos;
+
+      // Crea un libro de trabajo y agrega una hoja de cálculo
+      const workbook = XLSX.utils.book_new();
+      const sheet = XLSX.utils.json_to_sheet(data);
+
+      // Agrega la hoja de cálculo al libro de trabajo
+      XLSX.utils.book_append_sheet(workbook, sheet, 'Mi Hoja de Cálculo');
+
+      // Crea un objeto Blob para el archivo Excel
+      const blob = new Blob([XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
+
+      // Crea un objeto URL para descargar el archivo Excel
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'mi_archivo.xlsx');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
     }
 }
 
