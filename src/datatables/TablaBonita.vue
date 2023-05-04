@@ -1,10 +1,14 @@
 <template>
     <div>
-      <DataTable :data="myData" class="display">
+      <DataTable :data="myData"  :columns="filas" :options="{language:{search:'Buscar',next:'Siguiente',Previous:'anterior',},dom:'Bfrtip'}" class="display">
         <thead>
           <tr>
-            <th>Columna 1</th>
-            <th>Columna 2</th>
+            <th> scope</th>
+            <th>nombre</th>
+            <th>correo</th>
+            <th>documento</th>
+            <th>telefono</th>
+            <th>programa</th>
           </tr>
         </thead>
       </DataTable>
@@ -13,10 +17,13 @@
   
   <script>
   import DataTable from 'datatables.net-vue3';
-
-import DataTablesLib from 'datatables.net';
-
-DataTable.use(DataTablesLib);
+  import DataTablesLib from 'datatables.net';
+  import Buttons from 'datatables.net-buttons';
+  import axios from 'axios';
+  
+  DataTable.use(DataTablesLib);
+  DataTable.use(Buttons);
+  
   export default {
     name:'TablaBonita',
     components: {
@@ -25,13 +32,27 @@ DataTable.use(DataTablesLib);
     data() {
       return {
         myData: [
-          ['Fila 1, Columna 1', 'Fila 1, Columna 2'],
-          ['Fila 2, Columna 1', 'Fila 2, Columna 2'],
         ],
+        filas:[
+            {data:null,render:function(data,type,row,meta){
+                return `${meta.row}`
+            }},{data:'nombre'},{data:'correo'},{data:'documento'},{data:'telefono'},{data:'programa'}
+        ]
+       
       };
     },
-    mounted:function(){
-        
+
+    mounted(){
+        this.getEstudiantes()
+    },
+    methods:{
+        getEstudiantes(){
+            axios.get('http://127.0.0.1:8000/api/estudiantes/').then(
+                response =>(
+                    this.myData=response.data
+                )
+            )
+        }
     }
   };
   </script>
