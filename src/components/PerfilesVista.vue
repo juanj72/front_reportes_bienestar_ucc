@@ -119,11 +119,11 @@ export default {
 <style scoped>
 .export-buttons {
   display: flex;
-  padding: 2%;
-  align-items: center;
+ 
+ 
 }
 button{
-  margin: 1%;
+  margin: 1px;
 }
 
 </style>
