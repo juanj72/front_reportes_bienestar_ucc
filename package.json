@@ -20,6 +20,7 @@
     "datatables.net-buttons": "^2.3.6",
     "datatables.net-vue3": "^2.1.0",
     "jspdf": "^2.5.1",
+    "papaparse": "^5.4.1",
     "vue": "^3.2.13",
     "vue-chartjs": "^5.2.0",
     "vue-json-csv": "^2.1.0",

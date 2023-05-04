@@ -4,7 +4,7 @@
     <button class="btn btn-danger" @click="exportToPDF">
       <font-awesome-icon :icon="['fas', 'file-pdf']" />  Exportar a PDF
     </button>
-    <button class="btn btn-primary" @click="exportToCSV">
+    <button class="btn btn-primary" @click="exportToCsv">
       <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
     </button>
     <button class="btn btn-success" @click="exportToExcel">
@@ -33,6 +33,7 @@
   import Buttons from 'datatables.net-buttons';
   import axios from 'axios';
   import  * as XLSX from 'xlsx';
+  import Papa from 'papaparse';
 
   
   DataTable.use(DataTablesLib);
@@ -67,6 +68,20 @@
                 )
             )
         },
+
+        exportToCsv() {
+      const csv = Papa.unparse(this.myData);
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'data.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+
         exportToExcel() {
       // Obtiene los datos que quieres exportar
       const data = this.myData;
