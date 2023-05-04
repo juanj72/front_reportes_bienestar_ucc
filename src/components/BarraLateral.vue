@@ -3,7 +3,7 @@
 <body>
 
 	<div class="sidebar">
-		<a href="#hello"><font-awesome-icon :icon="['fas', 'house']" />  Inicio</a>
+		<a href="#"><font-awesome-icon :icon="['fas', 'house']" />  Inicio</a>
 		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
 		<a href="#eventos"><font-awesome-icon :icon="['fas', 'calendar-check']" /> Eventos</a>
 		
@@ -12,6 +12,7 @@
 		<a href="#perfiles"><font-awesome-icon :icon="['fas', 'briefcase']" /> Actividades</a>
 		<a href="#horas_bienestar"><font-awesome-icon :icon="['fas', 'hourglass-half']" /> Horas</a>
 		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
+		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'clipboard-question']" /> Asistencia</a>
 	</div>
 
 	<div class="main">

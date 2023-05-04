@@ -1,5 +1,5 @@
 <template>
-  <h1>Estudiantes</h1>
+  <h1><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</h1>
   <div class="export-buttons">
     <button class="btn btn-danger" @click="exportToPDF">
       <font-awesome-icon :icon="['fas', 'file-pdf']" />  Exportar a PDF
@@ -32,6 +32,8 @@
   import DataTablesLib from 'datatables.net';
   import Buttons from 'datatables.net-buttons';
   import axios from 'axios';
+  import  * as XLSX from 'xlsx';
+
   
   DataTable.use(DataTablesLib);
   DataTable.use(Buttons);
@@ -64,7 +66,34 @@
                     this.myData=response.data
                 )
             )
-        }
+        },
+        exportToExcel() {
+      // Obtiene los datos que quieres exportar
+      const data = this.myData;
+
+      // Crea un libro de trabajo y agrega una hoja de cálculo
+      const workbook = XLSX.utils.book_new();
+      const sheet = XLSX.utils.json_to_sheet(data);
+
+      // Agrega la hoja de cálculo al libro de trabajo
+      XLSX.utils.book_append_sheet(workbook, sheet, 'Mi Hoja de Cálculo');
+
+      // Crea un objeto Blob para el archivo Excel
+      const blob = new Blob([XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
+
+      // Crea un objeto URL para descargar el archivo Excel
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'mi_archivo.xlsx');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+  
+
     }
   };
   </script>
