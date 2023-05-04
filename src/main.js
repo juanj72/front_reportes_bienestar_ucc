@@ -18,12 +18,12 @@ import TablaBonita from './datatables/TablaBonita'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faDownload,faMagnifyingGlass,faHatWizard,faEye)
 library.add(faClipboardQuestion,faHouse)
-library.add(faCalendarCheck)
+library.add(faAddressBook,faCalendarCheck)
 library.add(faChartColumn,faChartArea,faFileExcel,faFileCsv,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf)
 
 
