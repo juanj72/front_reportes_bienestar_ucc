@@ -12,7 +12,7 @@
                     <button class="btn btn-danger" @click="exportToPDF">
                         <font-awesome-icon :icon="['fas', 'file-pdf']" /> Exportar a PDF
                     </button>
-                    <button class="btn btn-primary" @click="exportToCsv">
+                    <button class="btn btn-primary" @click="exportToCsv(actividades)">
                         <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
                     </button>
                     <button class="btn btn-success" @click="exportToExcel(actividades)">
@@ -49,7 +49,7 @@
                     <button class="btn btn-danger" @click="exportToPDF">
                         <font-awesome-icon :icon="['fas', 'file-pdf']" /> Exportar a PDF
                     </button>
-                    <button class="btn btn-primary" @click="exportToCsv">
+                    <button class="btn btn-primary" @click="exportToCsv(eventos)">
                         <font-awesome-icon :icon="['fas', 'file-csv']" /> Exportar a CSV
                     </button>
                     <button class="btn btn-success" @click="exportToExcel(eventos)">
@@ -88,6 +88,7 @@ import DataTable from 'datatables.net-vue3';
 import DataTablesLib from 'datatables.net';
 import Buttons from 'datatables.net-buttons';
 import  * as XLSX from 'xlsx';
+import Papa from 'papaparse';
 
 DataTable.use(DataTablesLib);
 DataTable.use(Buttons);
@@ -172,6 +173,21 @@ export default {
       link.click();
       document.body.removeChild(link);
     },
+
+    exportToCsv(data) {
+      const csv = Papa.unparse(data);
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'data.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    },
+
+
     }
 }
 
