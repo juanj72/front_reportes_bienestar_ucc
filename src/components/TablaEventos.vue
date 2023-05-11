@@ -26,7 +26,9 @@
 
 </div>
 
-
+<ModalEstudiante :is-open="showModal" @close="toggleModal" :id="dato" >
+     
+    </ModalEstudiante>
 
 
 
@@ -34,6 +36,7 @@
 
 <script>
 import axios from 'axios'
+import ModalEstudiante from '@/modal/ModalEstudiante.vue';
 
 export default{
 
@@ -41,6 +44,8 @@ export default{
     data:function(){
         return {
             datos:[],
+            dato:[],
+            showModal:false
        
         }
     },
@@ -49,11 +54,13 @@ export default{
     console.log(axios.get('http://127.0.0.1:8000/api/mostrarEventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
   },
   components:{
+    ModalEstudiante
 
   },
   methods: {
-    toggleModal() {
+    toggleModal(evento) {
       this.showModal = !this.showModal;
+      this.dato = evento
     },
   },
 

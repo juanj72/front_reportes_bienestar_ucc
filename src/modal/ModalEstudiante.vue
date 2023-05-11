@@ -21,7 +21,7 @@
     props: {
       isOpen: {
         type: Boolean,
-        required: true,
+    
       
       },
       id:[]

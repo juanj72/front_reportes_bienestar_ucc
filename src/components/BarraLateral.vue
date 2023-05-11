@@ -63,7 +63,7 @@ export default{
 }
 hr{
 
-	border-top: 3px solid #132740;
+	border-top: 9px solid rgb(255, 255, 255);
 	width: 80%;
 	margin-left: 20px;
 	
