@@ -1,9 +1,16 @@
 <template>
 	
-<body>
+
 
 	<div class="sidebar">
+		
+		<div class="logo">
+			<img src="../assets/ucc.png" alt="">
+			
+		</div>
+		<hr>
 		<a href="#"><font-awesome-icon :icon="['fas', 'house']" />  Inicio</a>
+
 		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
 		<a href="#eventos"><font-awesome-icon :icon="['fas', 'calendar-check']" /> Eventos</a>
 		
@@ -20,7 +27,6 @@
 
 		<RouterView></RouterView>
 	</div>
-</body>
 
 </template>
 
@@ -42,17 +48,49 @@ export default{
 </script>
 
 <style scoped>
+.sidebar{
+	text-align: left;
+	overflow-y: scroll;
+	margin-bottom: 20px;
+
+}
+
+.logo img{
+	margin-left: 27px;
+	width: 150px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+hr{
+
+	border-top: 3px solid #132740;
+	width: 80%;
+	margin-left: 20px;
+	
+
+}
+.logo{
+	margin-left: 10px;
+	padding-right: 5px;
+	width: 200px;
+	background-color: #ffffff;
+	border-radius: 50px;
+	margin-bottom: 10px;
+
+
+}
 
 /* Estilos para dispositivos de pantalla grande */
 @media only screen and (min-width: 768px) {
 	.sidebar {
 		position: fixed;
-		top: 0;
-		left: 0;
-		width: 200px;
+		
+		/*left: 0;*/
+		width: 250px;
 		height: 100%;
 		background-color: #00ACC9;
-		padding-top: 20px;
+		padding-top: 3%;
+		
 		
 	}
 
@@ -65,12 +103,16 @@ export default{
 
 	.sidebar a:hover {
 		background-color: #80BA27;
-		color: #333;
+		color: #132740;
 	}
 
 	.main {
-		margin-left: 200px;
+		
+		margin-left: 250px;
 		padding: 0 20px;
+	}
+	.main img{
+		margin-top: 1%;
 	}
 }
 
@@ -102,9 +144,7 @@ export default{
 		padding: 0 20px;
 	}
 
-	.show-sidebar {
-		left: 0;
-	}
+
 }
 
 
