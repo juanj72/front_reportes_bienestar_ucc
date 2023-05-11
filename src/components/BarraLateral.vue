@@ -51,7 +51,7 @@ export default{
 .sidebar{
 	text-align: left;
 	overflow-y: scroll;
-	margin-bottom: 20px;
+	
 
 }
 
@@ -73,7 +73,7 @@ hr{
 	margin-left: 10px;
 	padding-right: 5px;
 	width: 200px;
-	background-color: #ffffff;
+	background-color: rgb(255, 255, 255);
 	border-radius: 50px;
 	margin-bottom: 10px;
 
@@ -90,6 +90,7 @@ hr{
 		height: 100%;
 		background-color: #00ACC9;
 		padding-top: 3%;
+		padding-bottom: 70px;
 		
 		
 	}
@@ -99,11 +100,13 @@ hr{
 		color: #fff;
 		padding: 16px;
 		text-decoration: none;
+		margin-left: 20px;
 	}
 
 	.sidebar a:hover {
 		background-color: #80BA27;
 		color: #132740;
+		margin-right: 20px;
 	}
 
 	.main {
