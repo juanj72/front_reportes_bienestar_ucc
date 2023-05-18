@@ -20,6 +20,7 @@
 		<a href="#horas_bienestar"><font-awesome-icon :icon="['fas', 'hourglass-half']" /> Horas</a>
 		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
 		<a href="#Asistencia"><font-awesome-icon :icon="['fas', 'clipboard-question']" /> Asistencia</a>
+	
 	</div>
 
 	<div class="main">
@@ -50,8 +51,9 @@ export default{
 <style scoped>
 .sidebar{
 	text-align: left;
-	overflow-y: scroll;
 	
+	overflow-y: scroll ;
+
 
 }
 
@@ -70,15 +72,18 @@ hr{
 
 }
 .logo{
-	margin-left: 10px;
+	margin-left: 20px;
 	padding-right: 5px;
 	width: 200px;
 	background-color: rgb(255, 255, 255);
-	border-radius: 50px;
+	border-radius: 40px;
+	border-bottom: #80BA27 solid 2px;
 	margin-bottom: 10px;
-
+	border-right: #132740 solid 4px;
+	
 
 }
+
 
 /* Estilos para dispositivos de pantalla grande */
 @media only screen and (min-width: 768px) {
@@ -90,6 +95,7 @@ hr{
 		height: 100%;
 		background-color: #00ACC9;
 		padding-top: 3%;
+		
 		padding-bottom: 70px;
 		
 		
@@ -101,12 +107,20 @@ hr{
 		padding: 16px;
 		text-decoration: none;
 		margin-left: 20px;
+		transition: color 0.7s ease;
+		
+		
+	
 	}
 
 	.sidebar a:hover {
-		background-color: #80BA27;
+		/* background-color: white; */
+		border-bottom: #132740 solid 2px;
+		/* border-right: #132740 solid 9px; */
+		/* border-radius: 100px; */
 		color: #132740;
 		margin-right: 20px;
+		
 	}
 
 	.main {
