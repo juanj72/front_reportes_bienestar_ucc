@@ -79,9 +79,11 @@ export default {
         .then(response => {
           this.datos = response.data;
           console.log(this.idEvento)
+          console.log(this.divCargado);
         })
         .catch(error => {
           console.log(error);
+          
         }))
     },
     cargarDiv(){
