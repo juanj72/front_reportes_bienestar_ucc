@@ -16,7 +16,7 @@ import TablaHoras from './components/TablaHoras'
 import LoginAuth from './auth/LoginAuth'
 import TablaBonita from './datatables/TablaBonita'
 import AsistenciaEst from './components/AsistenciaEst'
-
+import {variable} from './constantes'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
@@ -66,7 +66,21 @@ const router =createRouter({
 
 
 
-const app =createApp(App)
+
+
+ let app =createApp(LoginAuth)
+
+
+// let variable = variable
+
+if(variable == true ){
+    app = createApp(App)
+}else{
+    app = createApp(LoginAuth)
+}
+
+
+
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
 .mount('#app')
