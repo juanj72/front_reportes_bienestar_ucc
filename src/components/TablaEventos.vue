@@ -6,7 +6,7 @@
     <thead>
       <tr>
         <th>nombre</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
         <th>Lugar</th>
         <th>Detalle</th>
     
@@ -17,18 +17,18 @@
         <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.descripcion }}</td>
         <td>{{ usuario.lugar }}</td>
-        <td><button  @click="toggleModal(usuario)" class="ver-est"><font-awesome-icon :icon="['fas', 'eye']" /></button></td>
+        <td><button  @click="openModal(usuario)" class="ver-est"><font-awesome-icon :icon="['fas', 'eye']" /></button></td>
     
         
       </tr>
     </tbody>
   </table>
 
+  <ModalActividad :isOpen="modalOpen" :actividad="dato" @close="closeModal" />
+
 </div>
 
-<ModalEstudiante :is-open="showModal" @close="toggleModal" :id="dato" >
-     
-    </ModalEstudiante>
+
 
 
 
@@ -36,7 +36,7 @@
 
 <script>
 import axios from 'axios'
-import ModalEstudiante from '@/modal/ModalEstudiante.vue';
+import ModalActividad from '@/modal/ModalActividad';
 
 export default{
 
@@ -44,8 +44,9 @@ export default{
     data:function(){
         return {
             datos:[],
+            modalOpen:false,
             dato:[],
-            showModal:false
+            
        
         }
     },
@@ -55,18 +56,23 @@ export default{
     console.log(axios.get('http://127.0.0.1:8000/api/mostrarEventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
   },
   components:{
-    ModalEstudiante
+   ModalActividad
 
   },
   methods: {
-    toggleModal(evento) {
-      this.showModal = !this.showModal;
-      this.dato = evento
+    openModal(estudiante) {
+      this.modalOpen = true;
+      this.dato = estudiante;
     },
+    closeModal() {
+      this.modalOpen = false;
+      this.modalEstudiante = null;
+    }
   },
+  }
 
 
-}
+
 </script>
 
 <style scoped >

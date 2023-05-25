@@ -121,7 +121,7 @@ hr{
 		/*left: 0;*/
 		width: 250px;
 		height: 100%;
-		background-color: #00ACC9;
+		background-color: #132740;
 		padding-top: 3%;
 		
 		padding-bottom: 70px;
@@ -143,10 +143,10 @@ hr{
 
 	.sidebar a:hover {
 		/* background-color: white; */
-		border-bottom: #132740 solid 2px;
+		border-bottom: #00ACC9 solid 2px;
 		/* border-right: #132740 solid 9px; */
 		/* border-radius: 100px; */
-		color: #132740;
+		color: #00ACC9;
 		margin-right: 20px;
 		
 	}

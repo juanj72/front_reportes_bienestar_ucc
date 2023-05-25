@@ -1,70 +1,101 @@
 <template>
-    <div class="modal" v-show="isOpen">
-      <div class="modal-overlay" @click="close"></div>
-      <div class="modal-content" v-if="id" >
-        <h2>Detalle de actividad</h2>
-        <h5>Encargado: {{ id.admin_nombre }} {{ id.apellido }}</h5>
-        <h5>Cargo: {{ id.cargo }} </h5>
-        <h5> <b>Lugar: </b> {{ id.lugar }}</h5>
-        <h5> <b>Dia:</b> {{ id.dia }}</h5>
-        <h5> <b>Horario:</b> {{ id.horario }}</h5>
-        <h4>Descripción: {{ id.descripcion }}</h4>
-      
-      
-        <slot></slot>
-      </div>
+  <div class="modal" :class="{ 'is-active': isOpen }">
+    <div class="modal-background" @click="closeModal"></div>
+    <div class="modal-content">
+      <!-- Contenido del modal -->
+      <h2>Estudiante: {{ actividad }}</h2>
     </div>
-  </template>
-  
-  <script>
+    <button class="modal-close is-large" @click="closeModal"></button>
+  </div>
+</template>
 
-  export default {
-    name:'ModalActividad',
-    props: {
-      isOpen: {
-        type: Boolean,
-        required: true,
-      
-      },
-      id:[]
+<script>
+export default {
+
+  name:'ModalActividad',
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true
     },
-    methods: {
-      close() {
-        this.$emit('close');
-        console.log(this.id)
-      },
+    actividad: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    closeModal() {
+      this.$emit('close');
+    }
+  },
+  mounted(){
+    console.log(this.actividad)
+  }
+};
+</script>
 
-    },
+<style scoped>
+.modal {
+  display: none;
+  width: 60%;
+}
 
-  };
-  </script>
-  
-  <style>
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-  }
-  
-  .modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 0.5rem;
-  }
-  </style>
+.modal.is-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.modal-close::before,
+.modal-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  transform: translate(-50%, -50%);
+}
+
+.modal-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+</style>

@@ -21,6 +21,7 @@
     props: {
       isOpen: {
         type: Boolean,
+        required:true
     
       
       },
@@ -33,6 +34,9 @@
       },
 
     },
+    mounted(){
+      
+    }
 
   };
   </script>
