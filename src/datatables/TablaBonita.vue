@@ -65,6 +65,7 @@ export default {
   },
   methods: {
     getEstudiantes() {
+      
       axios.get('http://127.0.0.1:8000/api/estudiantes/').then(
         response => (
           this.myData = response.data

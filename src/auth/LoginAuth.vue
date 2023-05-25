@@ -8,7 +8,7 @@
           <form action="" @submit.prevent="submitForm">
             <div class="group">
               <label for="user" class="label">Email</label>
-              <input id="user" type="email" class="input" v-model="email" required>
+              <input id="user" type="text" class="input" v-model="email" required>
             </div>
             <div class="group">
               <label for="pass" class="label">Password</label>
@@ -32,7 +32,7 @@
 </template>
   
 <script>
-import {variable,iniciarsesion} from '../../src/constantes'
+import auth from '../auth'
 export default {
   
   name: 'LoginAuth',
@@ -40,19 +40,26 @@ export default {
     return {
       email: "",
       password: "",
-      variable:variable
-      
+      error:false
     };
   },
-  methods: {
-    submitForm() {
+  methods:  {
+   async submitForm()  {
       // Aquí podrías enviar una solicitud al backend para autenticar al usuario
       // y redirigirlo a la página de inicio si los credenciales son válidos.
+      try {
+        await auth.register(this.email, this.password).then(response => {
+        console.log(response.data.access);
+        localStorage.setItem('TOKEN',response.data.access)
     
-      console.log(this.email);
-      console.log(this.password)
-      iniciarsesion('true')
-      console.log(variable)
+        this.$router.push("/");
+    });
+      } catch (error) {
+        console.log(error,'ha ocurrido algo')
+      }
+   
+  
+    
    
     },
   },

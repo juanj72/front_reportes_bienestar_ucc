@@ -18,6 +18,7 @@ import AsistenciaEst from './components/AsistenciaEst'
 // import {variable} from './constantes'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import BarraLateral from './components/BarraLateral'
+import axios from 'axios';
 
 import { faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
@@ -31,19 +32,8 @@ library.add(faChartColumn,faChartArea,faFileExcel,faFileCsv,faFileExport,faUsers
 
 
 
-
-
 const routes=[
-
-   
-    
-     
-   
-    
-     
-     
-     
-     
+ 
      {path:'/login',component:LoginAuth},
      
      
@@ -74,6 +64,11 @@ const router =createRouter({
 })
 
 
+
+var token = localStorage.getItem('TOKEN');
+if(token){
+    axios.defaults.headers.common['Authorization']='Bearer '+token
+}
 
 
 

@@ -49,8 +49,9 @@ export default{
        
         }
     },
-    mounted: function() {
+    mounted: async function() {
     // axios.get('http://127.0.0.1:8000/consulta_evento/').then(response => this.datos = response.data).catch(error => console.log(error));
+    // axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('TOKEN')
     console.log(axios.get('http://127.0.0.1:8000/api/mostrarEventos/').then(response => this.datos = response.data).catch(error => console.log(error)));
   },
   components:{

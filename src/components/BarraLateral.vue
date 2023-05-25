@@ -11,6 +11,7 @@
 		<hr>
 	
 		<router-link :to="{name:'inicio'}"><font-awesome-icon :icon="['fas', 'house']" /> inicio</router-link>
+		
 
 		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
 		<a href="#eventos"><font-awesome-icon :icon="['fas', 'calendar-check']" /> Eventos</a>
@@ -33,7 +34,7 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 
 export default{
     name:"BarraLateral",
@@ -43,6 +44,23 @@ export default{
 		
 
 	},
+	mounted(){
+		axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('TOKEN')
+
+		const token = localStorage.getItem('TOKEN')
+		console.log(token)
+		if (!token || token === null) {
+      // Redirigir al login si el token no existe o es inválido
+      this.$router.push('/login');
+    } else {
+      // El token es válido, puedes realizar otras acciones necesarias
+    }
+	},
+	methods:{
+		logout(){
+			localStorage.removeItem('TOKEN')
+		}
+	}
 
     
 }
