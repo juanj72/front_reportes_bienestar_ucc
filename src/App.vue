@@ -1,6 +1,8 @@
 <template>
  
-    <BarraLateral/>
+    <!-- <BarraLateral/> -->
+
+    <router-view></router-view>
     
    
 
@@ -11,11 +13,11 @@
 </template>
 
 <script>
-import BarraLateral from './components/BarraLateral.vue';
+// import BarraLateral from './components/BarraLateral.vue';
 export default {
   name: 'App',
   components:{
-    BarraLateral
+    // BarraLateral
   }
 }
 

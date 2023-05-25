@@ -1,7 +1,6 @@
-export let variable = false;
+export let variable = '';
 
-// export const iniciarsesion=()=>{
-//     this.variable=true
-//     return variable
-// }
+export const iniciarsesion=(valor)=>{
+ variable=valor
+}
 

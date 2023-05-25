@@ -4,20 +4,20 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter,createWebHashHistory } from 'vue-router'
 import HelloWorld from './components/HelloWorld'
-import FormularioDatos from './formularios/FormularioDatos'
 import ConsultaEstudiante from './formularios/ConsultaEstudiante'
 import TablaEventos from './components/TablaEventos'
-import tablaAdministrativos from './components/tablaAdministrativos'
+
 // createApp(App).mount('#app')
-import TablaEstudiantes from './components/TablaEstudiantes'
+
 import EstudiantesPrograma from './components/EstudiantesPrograma'
 import PerfilesVista from './components/PerfilesVista'
 import TablaHoras from './components/TablaHoras'
 import LoginAuth from './auth/LoginAuth'
 import TablaBonita from './datatables/TablaBonita'
 import AsistenciaEst from './components/AsistenciaEst'
-import {variable} from './constantes'
+// import {variable} from './constantes'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import BarraLateral from './components/BarraLateral'
 
 import { faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
@@ -35,19 +35,29 @@ library.add(faChartColumn,faChartArea,faFileExcel,faFileCsv,faFileExport,faUsers
 
 const routes=[
 
-    {path:'/',component:
-     HelloWorld},
-     {path:'/formulario',component: FormularioDatos},
-     {path:'/eventos',component: TablaEventos},
-     {path:'/administrativos',component:tablaAdministrativos},
-     {path: '/Estudiantes',component: TablaEstudiantes},
-     {path:'/consulta_est', component: ConsultaEstudiante},
-     {path:'/estudiantes_programa',component: EstudiantesPrograma},
-     {path: '/perfiles',component: PerfilesVista},
-     {path:'/horas_bienestar',component:TablaHoras},
+   
+    
+     
+   
+    
+     
+     
+     
+     
      {path:'/login',component:LoginAuth},
-     {path:'/tablabonita',component:TablaBonita},
-     {path:'/Asistencia',component:AsistenciaEst}
+     
+     
+
+     {path:'/',component:BarraLateral,children:[
+        {name:'inicio',path:'',component:HelloWorld},
+        {name:'asistencia',path:'/Asistencia',component:AsistenciaEst},
+        {name:'estudiantes',path:'/estudiantes',component:TablaBonita},
+        {name:'horas_bi',path:'/horas_bienestar',component:TablaHoras},
+        {name:'actividades',path: '/actividades',component: PerfilesVista},
+        {name:'estXprograma',path:'/estudiantes_programa',component: EstudiantesPrograma},
+        {name:'?estprogram',path:'/consulta_est', component: ConsultaEstudiante},
+        {name:'eventos',path:'/eventos',component: TablaEventos},
+     ]}
 
 
 
@@ -68,16 +78,12 @@ const router =createRouter({
 
 
 
- let app =createApp(LoginAuth)
+let app =null
 
 
-// let variable = variable
 
-if(variable == true ){
-    app = createApp(App)
-}else{
-    app = createApp(LoginAuth)
-}
+app = createApp(App)
+
 
 
 

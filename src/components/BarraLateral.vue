@@ -9,16 +9,17 @@
 			
 		</div>
 		<hr>
-		<a href="#"><font-awesome-icon :icon="['fas', 'house']" />  Inicio</a>
+	
+		<router-link :to="{name:'inicio'}"><font-awesome-icon :icon="['fas', 'house']" /> inicio</router-link>
 
 		<!-- <a href="#formulario"> <font-awesome-icon icon="user" />Consulta evento</a> -->
 		<a href="#eventos"><font-awesome-icon :icon="['fas', 'calendar-check']" /> Eventos</a>
 		
 		<a href="#consulta_est"><font-awesome-icon :icon="['fas', 'file-export']" /> Certificado horas</a>
 		<a href="#estudiantes_programa"><font-awesome-icon :icon="['fas', 'chart-line']" /> Estudiantes por programa</a>
-		<a href="#perfiles"><font-awesome-icon :icon="['fas', 'briefcase']" /> Actividades</a>
+		<a href="#actividades"><font-awesome-icon :icon="['fas', 'briefcase']" /> Actividades</a>
 		<a href="#horas_bienestar"><font-awesome-icon :icon="['fas', 'hourglass-half']" /> Horas</a>
-		<a href="#tablabonita"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
+		<a href="#estudiantes"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
 		<a href="#Asistencia"><font-awesome-icon :icon="['fas', 'clipboard-question']" /> Asistencia</a>
 	
 	</div>

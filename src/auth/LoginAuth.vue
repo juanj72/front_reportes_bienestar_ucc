@@ -5,18 +5,18 @@
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">...</label>
       <div class="login-form">
         <div class="sign-in-htm">
-          <form action="">
+          <form action="" @submit.prevent="submitForm">
             <div class="group">
               <label for="user" class="label">Email</label>
-              <input id="user" type="text" class="input">
+              <input id="user" type="email" class="input" v-model="email" required>
             </div>
             <div class="group">
               <label for="pass" class="label">Password</label>
-              <input id="pass" type="password" class="input" data-type="password">
+              <input id="pass" type="password" v-model="password"  class="input" data-type="password" required>
             </div>
 
             <div class="group">
-              <input type="submit" class="button" value="Iniciar sesión" @click="submitForm">
+              <button class="button"  type="submit" >iniciar sesión</button>
             </div>
             <div class="hr"></div>
             <img src="../assets/logotipo.svg" alt="">
@@ -32,7 +32,7 @@
 </template>
   
 <script>
-import {variable} from '../../src/constantes'
+import {variable,iniciarsesion} from '../../src/constantes'
 export default {
   
   name: 'LoginAuth',
@@ -48,8 +48,11 @@ export default {
     submitForm() {
       // Aquí podrías enviar una solicitud al backend para autenticar al usuario
       // y redirigirlo a la página de inicio si los credenciales son válidos.
-      this.variable=true
-      console.log(variable);
+    
+      console.log(this.email);
+      console.log(this.password)
+      iniciarsesion('true')
+      console.log(variable)
    
     },
   },
