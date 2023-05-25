@@ -26,6 +26,14 @@
 	</div>
 
 	<div class="main">
+		<nav class="navbar">
+    <div class="navbar-brand"><font-awesome-icon :icon="['fas', 'building-columns']" /> Bienestar reportes</div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <a  class="button is-danger" @click="logout"><font-awesome-icon :icon="['fas', 'arrow-right-from-bracket']" /></a>
+      </div>
+    </div>
+  </nav>
 		<img src="../assets/logotipo.svg" alt="">
 
 		<RouterView></RouterView>
@@ -59,6 +67,7 @@ export default{
 	methods:{
 		logout(){
 			localStorage.removeItem('TOKEN')
+			this.$router.push('/login')
 		}
 	}
 
@@ -183,6 +192,23 @@ hr{
 
 }
 
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-end {
+  display: flex;
+  align-items: center;
+}
 
 
 </style>

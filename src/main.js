@@ -20,10 +20,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import BarraLateral from './components/BarraLateral'
 import axios from 'axios';
 
-import { faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faBuildingColumns,faArrowRightFromBracket,faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faDownload,faMagnifyingGlass,faHatWizard,faEye)
+library.add(faBuildingColumns,faDownload,faMagnifyingGlass,faHatWizard,faEye,faArrowRightFromBracket)
 library.add(faClipboardQuestion,faHouse)
 library.add(faAddressBook,faCalendarCheck)
 library.add(faChartColumn,faChartArea,faFileExcel,faFileCsv,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf)

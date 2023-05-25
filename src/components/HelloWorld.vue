@@ -47,10 +47,10 @@ data:function(){
   
  }
 },
-mounted:function(){
-
-  console.log(axios.get('http://127.0.0.1:8000/api/asistenciaActividades').then(response => this.actividades = response.data).catch(error => console.log(error)));
-  console.log(axios.get('http://127.0.0.1:8000/api/asistenciaEventos').then(response => this.eventos = response.data).catch(error => console.log(error)));
+mounted: async function(){
+  console.log(await 'perros')
+  console.log(await axios.get('http://127.0.0.1:8000/api/asistenciaActividades').then(response => this.actividades = response.data).catch(error => console.log(error)));
+  console.log(await axios.get('http://127.0.0.1:8000/api/asistenciaEventos').then(response => this.eventos = response.data).catch(error => console.log(error)));
 
 }
 }
