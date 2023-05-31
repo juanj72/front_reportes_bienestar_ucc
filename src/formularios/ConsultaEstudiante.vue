@@ -115,6 +115,9 @@ export default {
           pdf.addImage(imgData, 'PNG', 0, 0, 208, 200); // Ajusta los valores de ancho y alto según el tamaño de la página
           pdf.save('archivo.pdf');
         });
+        this.$swal( 'certificado generado con exito',
+  '',
+  'success')
       }
 
     }

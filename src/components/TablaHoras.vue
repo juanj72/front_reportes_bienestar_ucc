@@ -13,7 +13,7 @@
     </button>
   </div>
 
-  <div>
+  <div ref="myDiv">
     <DataTable :data="myData"  :columns="filas" :options="{language:{search:'Buscar',next:'Siguiente',Previous:'anterior',},dom:'Bfrtip'}" class="display">
       <thead>
         <tr>
@@ -38,6 +38,9 @@ import Buttons from 'datatables.net-buttons';
 import axios from 'axios';
 import  * as XLSX from 'xlsx';
 import Papa from 'papaparse';
+
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 DataTable.use(DataTablesLib);
 DataTable.use(Buttons);
@@ -110,6 +113,18 @@ export default {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    },
+
+    exportToPDF(){
+      const div = this.$refs.myDiv;
+
+        html2canvas(div).then(canvas => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF();
+          pdf.addImage(imgData, 'PNG', 0, 0, 200, 170); // Ajusta los valores de ancho y alto según el tamaño de la página
+          pdf.save('archivo.pdf');
+        });
+
     },
 
   }
