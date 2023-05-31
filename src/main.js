@@ -7,7 +7,8 @@ import HelloWorld from './components/HelloWorld'
 import ConsultaEstudiante from './formularios/ConsultaEstudiante'
 import TablaEventos from './components/TablaEventos'
 import TareasProgramadas from './components/TareasProgramadas'
-
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 // createApp(App).mount('#app')
 
 import EstudiantesPrograma from './components/EstudiantesPrograma'
@@ -85,5 +86,7 @@ app = createApp(App)
 
 
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.use(VueSweetalert2)
 app.use(router)
+
 .mount('#app')
