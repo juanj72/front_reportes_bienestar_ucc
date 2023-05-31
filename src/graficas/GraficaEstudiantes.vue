@@ -57,7 +57,7 @@
       console.log(filas,llaves);
       this.chartData={
         labels : llaves,
-         datasets: [ { data: filas, backgroundColor : '#80BA27' },],
+         datasets: [ { data: filas, backgroundColor : '#80BA27', },],
       }
       
 

@@ -1,5 +1,19 @@
 <template >
-<h3><font-awesome-icon :icon="['fas', 'chart-area']" /> Bienvenido al modulo de reportes</h3>
+<h3><font-awesome-icon :icon="['fas', 'chart-area']" /> Bienvenido al módulo de reportes</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,5 +99,6 @@ mounted: async function(){
   padding: 10px;
   margin-bottom: 5%;
 }
+
 
 </style>

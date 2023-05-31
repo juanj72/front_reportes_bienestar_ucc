@@ -6,6 +6,7 @@ import { createRouter,createWebHashHistory } from 'vue-router'
 import HelloWorld from './components/HelloWorld'
 import ConsultaEstudiante from './formularios/ConsultaEstudiante'
 import TablaEventos from './components/TablaEventos'
+import TareasProgramadas from './components/TareasProgramadas'
 
 // createApp(App).mount('#app')
 
@@ -20,11 +21,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import BarraLateral from './components/BarraLateral'
 import axios from 'axios';
 
-import { faBuildingColumns,faArrowRightFromBracket,faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faListCheck,faLocationDot,faCircleQuestion,faPuzzlePiece,faDiagramProject,faBuildingColumns,faArrowRightFromBracket,faAddressBook,faClipboardQuestion,faDownload,faMagnifyingGlass,faEye,faChartColumn,faChartArea,faFileExcel,faFileCsv,faHatWizard,faHouse,faCalendarCheck,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faBuildingColumns,faDownload,faMagnifyingGlass,faHatWizard,faEye,faArrowRightFromBracket)
-library.add(faClipboardQuestion,faHouse)
+library.add(faLocationDot,faCircleQuestion,faPuzzlePiece,faDiagramProject,faBuildingColumns,faDownload,faMagnifyingGlass,faHatWizard,faEye,faArrowRightFromBracket)
+library.add(faListCheck,faClipboardQuestion,faHouse)
 library.add(faAddressBook,faCalendarCheck)
 library.add(faChartColumn,faChartArea,faFileExcel,faFileCsv,faFileExport,faUsers,faChartLine,faBriefcase,faHourglassHalf,faFilePdf)
 
@@ -47,6 +48,7 @@ const routes=[
         {name:'estXprograma',path:'/estudiantes_programa',component: EstudiantesPrograma},
         {name:'?estprogram',path:'/consulta_est', component: ConsultaEstudiante},
         {name:'eventos',path:'/eventos',component: TablaEventos},
+        {name:'TareasProgramadas',path:'/tareas',component:TareasProgramadas}
      ]}
 
 

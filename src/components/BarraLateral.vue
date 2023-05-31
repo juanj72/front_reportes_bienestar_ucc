@@ -22,6 +22,8 @@
 		<a href="#horas_bienestar"><font-awesome-icon :icon="['fas', 'hourglass-half']" /> Horas</a>
 		<a href="#estudiantes"><font-awesome-icon :icon="['fas', 'users']" /> Estudiantes</a>
 		<a href="#Asistencia"><font-awesome-icon :icon="['fas', 'clipboard-question']" /> Asistencia</a>
+		<a href="#tareas"><font-awesome-icon :icon="['fas', 'list-check']" /> Tareas Programadas</a>
+
 	
 	</div>
 
